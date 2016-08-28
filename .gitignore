@@ -38,3 +38,5 @@ gradle
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+*.sqlite
