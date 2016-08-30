@@ -83,6 +83,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
     }
 
+    // Создаём и открываем
+    public void loadDataBase() {
+        try {
+            createDataBase();
+        }
+        catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+        openDataBase();
+    }
+
     @Override
     public synchronized void close() {
         if(myDataBase != null)

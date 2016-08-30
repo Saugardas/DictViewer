@@ -19,18 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DataBaseHelper myDbHelper = new DataBaseHelper(this);
-
-        try {
-            myDbHelper.createDataBase();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-
-        try {
-            myDbHelper.openDataBase();
-        } catch (SQLException sqle) {
-            throw sqle;
-        }
+        myDbHelper.loadDataBase();
 
         // создаем объект для данных
         ContentValues cv = new ContentValues();
