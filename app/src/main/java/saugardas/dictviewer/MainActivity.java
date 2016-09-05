@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         // подключаемся к БД
         SQLiteDatabase db = myDbHelper.getWritableDatabase();
 
-        Cursor c = db.query("dictionary", null, null, null, null, null, null);
+        Cursor c = db.query("tech_dictionary", null, null, null, null, null, null);
 
         // определяем номера столбцов по имени в выборке
 
@@ -36,11 +36,13 @@ public class MainActivity extends AppCompatActivity {
             // определяем номера столбцов по имени в выборке
             int idColIndex = c.getColumnIndex("_id");
             int wordColIndex = c.getColumnIndex("word");
+            int translationColIndex = c.getColumnIndex("translation");
             do {
                 // получаем значения по номерам столбцов и пишем все в лог
                 Log.d("LOG",
-                        "ID = " + c.getInt(idColIndex) + ", word = "
-                                + c.getString(wordColIndex));
+                        "ID = " + c.getInt(idColIndex) +
+                        ", word = " + c.getString(wordColIndex) +
+                        ", translation = " + c.getString(translationColIndex));
                 // переход на следующую строку
                 // а если следующей нет (текущая - последняя), то false -
                 // выходим из цикла
